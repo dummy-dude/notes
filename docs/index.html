@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.2" />
+<title>pytest API documentation</title>
+<meta name="description" content="[Dokumentacja](https://docs.pytest.org/en/latest/contents.html) …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytest</code></h1>
+</header>
+<section id="section-intro">
+<h3 id="dokumentacja"><a href="https://docs.pytest.org/en/latest/contents.html">Dokumentacja</a></h3>
+<p>Biblioteka służąca do uruchamiania testów. Jest niezwykle konfigurowalna. Pozwala na stworzenie własnego frameworka
+testowego.</p>
+<h4 id="przydatne-linki">Przydatne linki</h4>
+<ul>
+<li><a href="https://buildmedia.readthedocs.org/media/pdf/pytest/latest/pytest.pdf">dokumentacja pdf</a></li>
+<li><a href="https://docs.pytest.org/en/latest/reference.html">pytest API</a></li>
+<li><a href="https://docs.pytest.org/en/latest/usage.html">uruchamianie</a></li>
+<li><a href="https://docs.pytest.org/en/latest/doctest.html">dokumentowanie</a></li>
+<li><a href="https://docs.pytest.org/en/latest/example/index.html">przykłady użycia</a></li>
+<li><a href="https://docs.pytest.org/en/latest/talks.html">tutoriale</a></li>
+</ul>
+<h3 id="budowanie-struktury-testow">Budowanie struktury testów</h3>
+<p>Podział na <a href="(&lt;https://pytest.readthedocs.io/en/reorganize-docs/new-docs/user/directory_structure.html&gt;)">dwa przypadki</a>:</p>
+<ul>
+<li>testy mieszamy w foldery projektu</li>
+<li>umieszczamy je poza projektem w katalogu <strong>tests</strong> -
+<a href="(&lt;https://docs.pytest.org/en/latest/goodpractices.html#tests-outside-application-code&gt;)">dobra praktyka</a><ul>
+<li>układ folderów i testów powinien odpowiadać temu z plikami projektu </li>
+<li>np. kiedy mamy moduł gui.py to odpowiednio tworzymy test_gui.py</li>
+</ul>
+</li>
+</ul>
+<h4 id="przykadowa-struktura-z-kursu">Przykładowa struktura z kursu</h4>
+<pre><code>vehicles
+└── tests
+    ├── truck
+        ...
+    └── sportcar
+        ├── wheels
+            └── test_durability.py
+        ├── body
+            ├── test_bumper.py
+            └── test_doors.py
+        └── engine
+            └── test_engine.py
+</code></pre>
+<h4 id="przykady-w-istniejacych-projektach"><a href="(&lt;https://docs.pytest.org/en/latest/projects.html&gt;)">Przykłady</a> w istniejących projektach</h4>
+<ul>
+<li><a href="https://github.com/circuits/circuits/tree/master/tests">circuits</a></li>
+<li><a href="https://github.com/getsentry/sentry/tree/master/tests">sentry</a></li>
+<li><a href="https://github.com/tox-dev/tox/tree/master/tests">tox</a></li>
+</ul>
+<h3 id="uruchamianie">Uruchamianie</h3>
+<p>By uruchomić testy wystarczy wpisać <code>pytest</code> w katalogu gdzie one się znajdują, z tym że:</p>
+<ul>
+<li>nazwy plików ( test_* ), klas ( Test* ) oraz funkcji, metod ( test_* ) powinny odpowiadać konwencji w nawiasach -
+można ją zmienić w pliku
+<a href="https://docs.pytest.org/en/latest/example/pythoncollection.html#changing-naming-conventions">pytest.ini</a></li>
+<li>nie zostały importowane moduły z pakietu - wyskoczy <code>ImportError</code>, by tego uniknąć możemy:<ul>
+<li>
+<h4 id="python3-m-pytest-tests"><code>python3 -m pytest tests</code></h4>
+<ul>
+<li>wywołujemy w katalogu głównym projektu (gdzie tests to nazwa folderu z testami, zyskają
+one dostęp do modułów projektu z katalogu <code>src</code>, np. o nazwie <code>memorizeIT</code>)</li>
+</ul>
+</li>
+<li>
+<h4 id="pip-install-e"><code>pip install -e .</code></h4>
+<ul>
+<li>wywołujemy w katalogu głównym projektu jeśli mamy plik <code>setup.py</code>. Możemy wtedy zainstalować pakiet w wersji
+<code>--extended</code>. Nie zostanie on umieszczony w systemie, ale kod z folderu projektu, nad którym pracujemy będzię
+<strong>zlinkowany</strong>. Można go wtedy wywoływać tak jak pakiety zainstalowane normalnie. Przy czym wprowadzenie
+jakichkolwiek zmian w projekcie, będzię miało miejsce natychmiast (bez przeinstalowania).</li>
+</ul>
+</li>
+<li>
+<h4 id="uzycie-tox">użycie tox</h4>
+<ul>
+<li>zalecane, <em>dobra praktyka</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="flagi">Flagi</h4>
+<ul>
+<li><code>-h</code> : help</li>
+<li><code>-v</code> : wyświetla detale</li>
+<li><code>-s</code> : standard out, wyświetla print</li>
+<li><code>--markers</code> : pokazuje dostępne markery</li>
+<li><code>--fixtures</code> : pokazuje dostępne fixtury</li>
+<li><code>-rs</code> : wyświetla opis z markerów skip podczas przebiegu testów</li>
+<li><code>-rx</code> : wyświetla opis z markerów xfail podczas przebiegu testów</li>
+</ul>
+<h3 id="konfiguracja">Konfiguracja</h3>
+<p>W katalogu gdzie zaczynają się nasze testy, np. <code>tests</code> umieszczamy plik konfiguracyjny <code>pytest.ini</code> (lub dodajemy
+poniższe opcję do pliku <code>tox.ini</code>):</p>
+<pre><code class="ini">[pytest]
+python_files = check_*
+python_classes = *Check
+python_functions = *_check
+
+addopts = -v
+testpaths = tests
+markers = 
+    smoke : All critical tests
+    database : All database tests
+    gui : All GUI tests
+</code></pre>
+<ul>
+<li><code>python_uruchomieniefiles</code>, <code>_classes</code>, <code>_functions</code> - pozwala na edycję domyślnych (w nawiasach) nazw plików (test_*), klas
+(Test*) oraz funkcji (test_*) </li>
+<li><code>addopts</code> pozwala na dodawanie
+<a href="https://docs.pytest.org/en/latest/customize.html#builtin-configuration-file-options">predefiniowanych flag</a>
+do wywołania przez użytkownika. Umieszczenie <code>-v</code> powyżej oznacza, że za każdym wywołaniem <code>pytest</code> w terminalu będzię
+wyświetlony wynik dla <code>pytest -v</code></li>
+<li><code>testpaths</code> określa nazwę katalogu z testami. Jeśli jej nie podamy wszystkie foldery zostaną przeszukane w celu
+odnalezienia testów</li>
+<li><code>markers</code> - zawiera nazwy markerów użytych w testach oraz ich opis. Użytkownik może je wyświetlić wpisując: <code>pytest
+--markers</code>. Nie musimy zamieszczać opisu wszystkich, część może być tylko znana developerowi.</li>
+</ul>
+<h4 id="uzycie-conftestpy-i-fixture">Użycie conftest.py i fixture</h4>
+<p>Każdy test znajdujący się w tym samym lub podrzędnym katalogu co <code>conftest.py</code> uzyskuje dostęp do funkcji zdefiniowanych
+w tym pliku (oznaczonych <code>@fixture</code>). Można je nadpisywać tworząc kolejny <code>conftest.py</code> w folderze wyżej i umieszczając
+w nim funkcję o tej samej nazwie. Więcej informacji w zakładce fixtures.</p>
+<h4 id="dodawanie-wasnych-argumentow">Dodawanie własnych argumentów</h4>
+<p>By stworzyć własną flagę używamy <code>parser.addoption</code>. Poniższy kod umieszczamy w <code>conftest.py</code>:</p>
+<pre><code class="python">def pytest_addoption(parser):
+    parser.addoption('--env', action='store', default='dev', help='Sets environment for tests.')
+</code></pre>
+<p>Po wywołaniu <code>pytest -h</code> pojawi się w help - custom options nasza opcja wraz z opisem. Dostępne argumenty dla parsera
+można znaleźć w <a href="https://docs.python.org/3/library/argparse.html">dokumentacji</a>. Uwaga:</p>
+<ul>
+<li>słowo <code>parser</code> jest zarezerwowane w <code>pytest</code>, tak samo <code>request</code> służące do wczytania argumentów z linii komend. Tyczy
+się to również <code>config</code>. Nie należy przesłaniać <em>(shadow var)</em> żadnego z nich.</li>
+<li>dodawanie <code>default</code> może być błędem, nowy programista chcący uruchomić testy przykładowo w <code>qa</code> nie mając wiedzy,
+że domyślnie odpalą się w <code>dev</code> będzię błędnie interpretował wynik.</li>
+</ul>
+<h5 id="przykadowe-uzycie">Przykładowe użycie</h5>
+<p>Tworzenie flag <code>--browser</code> i przekazywanie przeglądarek czy <code>--headless</code> nie otwierającej okien przeglądarki tylko
+przetwarzającej testy w tle (pamięci), <code>--env</code> określającej dane dla środowiska testowego, przykład poniżej:</p>
+<pre><code class="python">class Config:
+    def __init__(self, env):
+        self.base_url = {'dev': 'https://mydev-env.com', 'qa': 'https://myqa-env.com'}[env]
+        self.app_port = {'dev': 8080,'qa': 80}[env]
+</code></pre>
+<p>Dodajemy gdzieś klasę zawierającą naszą konfigurację, np. w <code>config.py</code>. Następnie tworzymy fixture pod definicją
+parsera (patrz powyżej <code>pytest_addoption</code>) z zasięgiem <code>session</code> - konfiguracja nie powinna się zmieniać w trakcie
+trwania sesji testowej. Zwraca ona nasz <code>Config</code> z odpowiednią wartością wczytaną z flagi <code>--env</code> w <code>conftest.py</code> :</p>
+<pre><code class="python">@fixture(scope='session')
+def app_config(request):
+    return Config(request.config.getoption('--env'))
+</code></pre>
+<p>Możemy używać naszej konfiguracji w testach, przykładowo:</p>
+<pre><code class="python">def test_environment_is_dev(app_config):
+    assert app_config.base_url == 'https://mydev-env.com'
+    assert app_config.app_port == 8080
+</code></pre>
+<h5 id="wiecej-o-argumentach"><a href="https://docs.pytest.org/en/latest/example/simple.html#control-skipping-of-tests-according-to-command-line-option">Więcej o argumentach</a></h5>
+<h4 id="dostepne-opcje-konfiguracji"><a href="https://docs.pytest.org/en/latest/reference.html#configuration-options">Dostępne opcje konfiguracji</a></h4>
+<h3 id="raporty">Raporty</h3>
+<p>Z przebiegu testów można generować raporty. Format wybieramy zależnie od potrzeb:</p>
+<ul>
+<li>
+<h4 id="html">html</h4>
+<ul>
+<li>czytelność dla odbiorcy</li>
+<li>używamy dodatku <code>pytest-html</code> opisanego poniżej</li>
+<li>generujemy raport: <code>pytest-html --html="results.html"</code></li>
+</ul>
+</li>
+<li>
+<h4 id="xml">xml</h4>
+<ul>
+<li>intergracja z narzędziem CI, np. Jenkins</li>
+<li>opis w kursie na udemy: <em>"Elegant Automation Frameworks with Python and Pytest"</em> (S02E05)</li>
+<li>tworzymy raport: <code>pytest --junitxml="results.xml"</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="dodatki">Dodatki</h3>
+<ul>
+<li>
+<h4 id="pytest-xdist"><a href="https://github.com/pytest-dev/pytest-xdist">pytest-xdist</a></h4>
+<ul>
+<li>pozwala na wielowątkowe uruchomienie testów</li>
+<li>instalacja: <code>pip install pytest-xdist</code></li>
+<li>użycie: <code>pytest -n4</code> gdzie po <code>n</code> podajemy ile procesów (lub jeśli nie ma tylu rdzeni to ile wątków) zostanie
+uruchomione. Możemy wykorzystać <code>-nauto</code> do automatycznej konfiguracji.</li>
+</ul>
+</li>
+<li>
+<h4 id="pytest-socket"><a href="https://github.com/miketheman/pytest-socket">pytest-socket</a></h4>
+<ul>
+<li>dzięki niemu możemy łatwo zablokować połączenie internetowe</li>
+<li>instalacja: <code>pip install pytest-socket</code></li>
+<li>użycie: <code>from pytest_socket import disable_socket</code></li>
+</ul>
+</li>
+<li>
+<h4 id="pytest-html"><a href="https://github.com/pytest-dev/pytest-html">pytest-html</a></h4>
+<ul>
+<li>umożliwia generowanie raportów <code>html</code> z testów</li>
+<li>instalacja: <code>pip install pytest-html</code></li>
+<li>użycie: <code>pytest-html --html="results.html"</code></li>
+</ul>
+</li>
+<li>
+<h4 id="pytest-cov"><a href="https://pytest-cov.readthedocs.io/en/latest/">pytest-cov</a></h4>
+<ul>
+<li>do sprawdzania pokrycia projektu testami</li>
+<li>instalacja: <code>pip install pytest-cov</code></li>
+<li>użycie: <code>pytest --cov=project tests/</code></li>
+</ul>
+</li>
+</ul>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+### [Dokumentacja](https://docs.pytest.org/en/latest/contents.html)
+
+Biblioteka służąca do uruchamiania testów. Jest niezwykle konfigurowalna. Pozwala na stworzenie własnego frameworka 
+testowego.
+
+#### Przydatne linki
+
+- [dokumentacja pdf](https://buildmedia.readthedocs.org/media/pdf/pytest/latest/pytest.pdf)
+- [pytest API](https://docs.pytest.org/en/latest/reference.html)
+- [uruchamianie](https://docs.pytest.org/en/latest/usage.html)
+- [dokumentowanie](https://docs.pytest.org/en/latest/doctest.html)
+- [przykłady użycia](https://docs.pytest.org/en/latest/example/index.html)
+- [tutoriale](https://docs.pytest.org/en/latest/talks.html)
+
+### Budowanie struktury testów
+
+Podział na [dwa przypadki]((https://pytest.readthedocs.io/en/reorganize-docs/new-docs/user/directory_structure.html)):
+
+- testy mieszamy w foldery projektu
+- umieszczamy je poza projektem w katalogu **tests** - 
+[dobra praktyka]((https://docs.pytest.org/en/latest/goodpractices.html#tests-outside-application-code))
+    - układ folderów i testów powinien odpowiadać temu z plikami projektu 
+    - np. kiedy mamy moduł gui.py to odpowiednio tworzymy test_gui.py
+
+#### Przykładowa struktura z kursu
+```
+vehicles
+└── tests
+    ├── truck
+        ...
+    └── sportcar
+        ├── wheels
+            └── test_durability.py
+        ├── body
+            ├── test_bumper.py
+            └── test_doors.py
+        └── engine
+            └── test_engine.py
+```
+
+#### [Przykłady]((https://docs.pytest.org/en/latest/projects.html)) w istniejących projektach
+
+- [circuits](https://github.com/circuits/circuits/tree/master/tests)
+- [sentry](https://github.com/getsentry/sentry/tree/master/tests)
+- [tox](https://github.com/tox-dev/tox/tree/master/tests)
+
+### Uruchamianie
+
+By uruchomić testy wystarczy wpisać `pytest` w katalogu gdzie one się znajdują, z tym że:
+
+- nazwy plików ( test_\* ), klas ( Test\* ) oraz funkcji, metod ( test_\* ) powinny odpowiadać konwencji w nawiasach - 
+można ją zmienić w pliku 
+[pytest.ini](https://docs.pytest.org/en/latest/example/pythoncollection.html#changing-naming-conventions)
+- nie zostały importowane moduły z pakietu - wyskoczy `ImportError`, by tego uniknąć możemy:
+    - #### `python3 -m pytest tests`
+        - wywołujemy w katalogu głównym projektu (gdzie tests to nazwa folderu z testami, zyskają 
+    one dostęp do modułów projektu z katalogu `src`, np. o nazwie `memorizeIT`)
+    - #### `pip install -e .` 
+        - wywołujemy w katalogu głównym projektu jeśli mamy plik `setup.py`. Możemy wtedy zainstalować pakiet w wersji 
+        `--extended`. Nie zostanie on umieszczony w systemie, ale kod z folderu projektu, nad którym pracujemy będzię 
+        **zlinkowany**. Można go wtedy wywoływać tak jak pakiety zainstalowane normalnie. Przy czym wprowadzenie 
+        jakichkolwiek zmian w projekcie, będzię miało miejsce natychmiast (bez przeinstalowania).
+    - #### użycie tox
+        - zalecane, *dobra praktyka*
+
+#### Flagi
+
+- `-h` : help
+- `-v` : wyświetla detale
+- `-s` : standard out, wyświetla print
+- `--markers` : pokazuje dostępne markery
+- `--fixtures` : pokazuje dostępne fixtury
+- `-rs` : wyświetla opis z markerów skip podczas przebiegu testów
+- `-rx` : wyświetla opis z markerów xfail podczas przebiegu testów
+
+### Konfiguracja
+
+W katalogu gdzie zaczynają się nasze testy, np. `tests` umieszczamy plik konfiguracyjny `pytest.ini` (lub dodajemy 
+poniższe opcję do pliku `tox.ini`):
+```ini
+[pytest]
+python_files = check_*
+python_classes = *Check
+python_functions = *_check
+
+addopts = -v
+testpaths = tests
+markers = 
+    smoke : All critical tests
+    database : All database tests
+    gui : All GUI tests
+```
+
+- `python_uruchomieniefiles`, `_classes`, `_functions` - pozwala na edycję domyślnych (w nawiasach) nazw plików (test_\*), klas 
+(Test\*) oraz funkcji (test_\*) 
+- `addopts` pozwala na dodawanie 
+[predefiniowanych flag](https://docs.pytest.org/en/latest/customize.html#builtin-configuration-file-options) 
+do wywołania przez użytkownika. Umieszczenie `-v` powyżej oznacza, że za każdym wywołaniem `pytest` w terminalu będzię 
+wyświetlony wynik dla `pytest -v`
+- `testpaths` określa nazwę katalogu z testami. Jeśli jej nie podamy wszystkie foldery zostaną przeszukane w celu 
+odnalezienia testów
+- `markers` - zawiera nazwy markerów użytych w testach oraz ich opis. Użytkownik może je wyświetlić wpisując: `pytest 
+--markers`. Nie musimy zamieszczać opisu wszystkich, część może być tylko znana developerowi.
+
+#### Użycie conftest.py i fixture
+
+Każdy test znajdujący się w tym samym lub podrzędnym katalogu co `conftest.py` uzyskuje dostęp do funkcji zdefiniowanych 
+w tym pliku (oznaczonych `@fixture`). Można je nadpisywać tworząc kolejny `conftest.py` w folderze wyżej i umieszczając 
+w nim funkcję o tej samej nazwie. Więcej informacji w zakładce fixtures.
+
+#### Dodawanie własnych argumentów
+
+By stworzyć własną flagę używamy `parser.addoption`. Poniższy kod umieszczamy w `conftest.py`:
+```python
+def pytest_addoption(parser):
+    parser.addoption(&#39;--env&#39;, action=&#39;store&#39;, default=&#39;dev&#39;, help=&#39;Sets environment for tests.&#39;)
+```
+Po wywołaniu `pytest -h` pojawi się w help - custom options nasza opcja wraz z opisem. Dostępne argumenty dla parsera 
+można znaleźć w [dokumentacji](https://docs.python.org/3/library/argparse.html). Uwaga:
+
+- słowo `parser` jest zarezerwowane w `pytest`, tak samo `request` służące do wczytania argumentów z linii komend. Tyczy 
+się to również `config`. Nie należy przesłaniać *(shadow var)* żadnego z nich.
+- dodawanie `default` może być błędem, nowy programista chcący uruchomić testy przykładowo w `qa` nie mając wiedzy, 
+że domyślnie odpalą się w `dev` będzię błędnie interpretował wynik.
+
+##### Przykładowe użycie
+
+Tworzenie flag `--browser` i przekazywanie przeglądarek czy `--headless` nie otwierającej okien przeglądarki tylko 
+przetwarzającej testy w tle (pamięci), `--env` określającej dane dla środowiska testowego, przykład poniżej:
+```python    
+class Config:
+    def __init__(self, env):
+        self.base_url = {&#39;dev&#39;: &#39;https://mydev-env.com&#39;, &#39;qa&#39;: &#39;https://myqa-env.com&#39;}[env]
+        self.app_port = {&#39;dev&#39;: 8080,&#39;qa&#39;: 80}[env]
+```
+Dodajemy gdzieś klasę zawierającą naszą konfigurację, np. w `config.py`. Następnie tworzymy fixture pod definicją 
+parsera (patrz powyżej `pytest_addoption`) z zasięgiem `session` - konfiguracja nie powinna się zmieniać w trakcie 
+trwania sesji testowej. Zwraca ona nasz `Config` z odpowiednią wartością wczytaną z flagi `--env` w `conftest.py` :
+```python
+@fixture(scope=&#39;session&#39;)
+def app_config(request):
+    return Config(request.config.getoption(&#39;--env&#39;))
+```
+Możemy używać naszej konfiguracji w testach, przykładowo:
+```python
+def test_environment_is_dev(app_config):
+    assert app_config.base_url == &#39;https://mydev-env.com&#39;
+    assert app_config.app_port == 8080
+```
+
+##### [Więcej o argumentach](https://docs.pytest.org/en/latest/example/simple.html#control-skipping-of-tests-according-to-command-line-option)
+
+#### [Dostępne opcje konfiguracji](https://docs.pytest.org/en/latest/reference.html#configuration-options)
+
+### Raporty
+
+Z przebiegu testów można generować raporty. Format wybieramy zależnie od potrzeb:
+
+- #### html
+    - czytelność dla odbiorcy
+    - używamy dodatku `pytest-html` opisanego poniżej
+    - generujemy raport: `pytest-html --html=&#34;results.html&#34;`
+- #### xml
+    - intergracja z narzędziem CI, np. Jenkins
+    - opis w kursie na udemy: *&#34;Elegant Automation Frameworks with Python and Pytest&#34;* (S02E05)
+    - tworzymy raport: `pytest --junitxml=&#34;results.xml&#34;`
+
+### Dodatki
+
+- #### [pytest-xdist](https://github.com/pytest-dev/pytest-xdist)
+    - pozwala na wielowątkowe uruchomienie testów
+    - instalacja: `pip install pytest-xdist`
+    - użycie: `pytest -n4` gdzie po `n` podajemy ile procesów (lub jeśli nie ma tylu rdzeni to ile wątków) zostanie 
+    uruchomione. Możemy wykorzystać `-nauto` do automatycznej konfiguracji.
+- #### [pytest-socket](https://github.com/miketheman/pytest-socket)
+    - dzięki niemu możemy łatwo zablokować połączenie internetowe
+    - instalacja: `pip install pytest-socket`
+    - użycie: `from pytest_socket import disable_socket`
+- #### [pytest-html](https://github.com/pytest-dev/pytest-html)
+    - umożliwia generowanie raportów `html` z testów
+    - instalacja: `pip install pytest-html`
+    - użycie: `pytest-html --html=&#34;results.html&#34;`
+- #### [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/)
+    - do sprawdzania pokrycia projektu testami
+    - instalacja: `pip install pytest-cov`
+    - użycie: `pytest --cov=project tests/`
+&#34;&#34;&#34;</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="pytest.markers" href="markers.html">pytest.markers</a></code></dt>
+<dd>
+<section class="desc"><p><a href="https://docs.pytest.org/en/latest/mark.html">Dokumentacja</a> …</p></section>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#dokumentacja">Dokumentacja</a><ul>
+<li><a href="#przydatne-linki">Przydatne linki</a></li>
+</ul>
+</li>
+<li><a href="#budowanie-struktury-testow">Budowanie struktury testów</a><ul>
+<li><a href="#przykadowa-struktura-z-kursu">Przykładowa struktura z kursu</a></li>
+<li><a href="#przykady-w-istniejacych-projektach">Przykłady w istniejących projektach</a></li>
+</ul>
+</li>
+<li><a href="#uruchamianie">Uruchamianie</a><ul>
+<li><a href="#python3-m-pytest-tests">python3 -m pytest tests</a></li>
+<li><a href="#pip-install-e">pip install -e .</a></li>
+<li><a href="#uzycie-tox">użycie tox</a></li>
+<li><a href="#flagi">Flagi</a></li>
+</ul>
+</li>
+<li><a href="#konfiguracja">Konfiguracja</a><ul>
+<li><a href="#uzycie-conftestpy-i-fixture">Użycie conftest.py i fixture</a></li>
+<li><a href="#dodawanie-wasnych-argumentow">Dodawanie własnych argumentów</a><ul>
+<li><a href="#przykadowe-uzycie">Przykładowe użycie</a></li>
+<li><a href="#wiecej-o-argumentach">Więcej o argumentach</a></li>
+</ul>
+</li>
+<li><a href="#dostepne-opcje-konfiguracji">Dostępne opcje konfiguracji</a></li>
+</ul>
+</li>
+<li><a href="#raporty">Raporty</a><ul>
+<li><a href="#html">html</a></li>
+<li><a href="#xml">xml</a></li>
+</ul>
+</li>
+<li><a href="#dodatki">Dodatki</a><ul>
+<li><a href="#pytest-xdist">pytest-xdist</a></li>
+<li><a href="#pytest-socket">pytest-socket</a></li>
+<li><a href="#pytest-html">pytest-html</a></li>
+<li><a href="#pytest-cov">pytest-cov</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="pytest.markers" href="markers.html">pytest.markers</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.2</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

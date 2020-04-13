@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.2" />
+<title>pytest.markers API documentation</title>
+<meta name="description" content="[Dokumentacja](https://docs.pytest.org/en/latest/mark.html) …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytest.markers</code></h1>
+</header>
+<section id="section-intro">
+<h3 id="dokumentacja"><a href="https://docs.pytest.org/en/latest/mark.html">Dokumentacja</a></h3>
+<p>Markery umożliwiają dodanie tagów do testów. Dzięki temu możemy je grupować co pozwala uruchamiać wyłącznie poszczególne
+przypadki. Testy możemy również oznaczyć jako do pominięcia lub skazane na niepowodzenie. Poprzez parametryzację
+wykonujemy dany test wiele razy - dla każdego z podanych argumentów w markerze. Patrz przykłady poniżej.</p>
+<p>Opis markerów zamieszczamy w pliku <code>ini</code>, np:</p>
+<pre><code>markers = 
+    smoke : All critical tests
+    database : All database tests
+    gui : All GUI tests
+</code></pre>
+<p>Nie musimy opisywać wszystkich, część może być tylko znana developerowi. Do ich wyświetlenia używamy komendy:
+<code>pytest --markers</code>.</p>
+<h3 id="uzycie">Użycie</h3>
+<p>Przykładowy plik <code>test_me.py</code> oznaczony markerami:</p>
+<pre><code class="python">from pytest import mark
+
+@mark.smoke
+@mark.gui
+def test_something():
+    assert True
+</code></pre>
+<p>Do jednej funkcji, metody czy klasy możemy dodać dowolną ilość markerów. Jeśli klasa zostanie oznaczona to tyczy się to
+każdej dostępnej w niej metody, np. umieszczenie <code>@mark.skip</code> spowoduje, że żaden test z danej klasy nie zostanie
+wykonany.</p>
+<h3 id="uruchomienie">Uruchomienie</h3>
+<ul>
+<li><code>pytest -m nazwa</code> : uruchamia przypadki oznaczone markerem <code>@mark.nazwa</code></li>
+<li><code>pytest -m "smoke and gui"</code> : uruchamia przypadki posiadające oba markery (jak przykład powyżej)</li>
+<li><code>pytest -m "smoke or gui"</code> : uruchamia przypadki oznaczone markerem <code>@mark.smoke</code> i te <code>@gui</code></li>
+<li><code>pytest -m "not gui"</code> : uruchamia wszystkie testy poza oznaczonymi markerem <code>@mark.gui</code></li>
+</ul>
+<h4 id="inne-flagi">Inne flagi</h4>
+<ul>
+<li><code>--markers</code> : wyświetla opis markerów zamieszczonych w pliku <code>ini</code></li>
+<li><code>-rs</code> : wyświetla opis z pominiętych markerów (skip)</li>
+<li><code>-rx</code> : wyświetla opis z markerów skazanych na niepowodzenie (xfail)</li>
+</ul>
+<h3 id="predefiniowane-markery">Predefiniowane markery</h3>
+<ul>
+<li><code>@mark.skip(reason='Fix in next sprint')</code> - służy do pomijania testów, informację dlaczego test został pominięty można
+umieścić w parametrze <code>reason</code> - opcjonalna (wyświetla się ją flagą <code>-rs</code>)</li>
+<li><code>@mark.skipif(sys.platform=='win32', reason='Linux only tests')</code> - pomija test jeśli warunek jest spełniony, według
+kursu mało użyteczne - stosować <code>xfail</code></li>
+<li><code>@mark.xfail</code> - oznacza, że test się nie powiedzie, można jak przy <code>skipif</code> ustalić warunek (dla jakich przypadków
+zachodzi niepowodzenie) i podać przyczynę w <code>reason</code> (wyświetla ją flaga <code>-rx</code>)</li>
+<li><code>@mark.parametrize('nazwa', ['arg1', 'arg2'])</code> - test oznaczony takim markerem uruchomi się tyle razy co liczba
+podanych argumentów w liście, przekazujemy je poprzez użytą powyżej nazwę: <code>def test_me(nazwa)</code></li>
+</ul>
+<h3 id="przykady"><a href="https://docs.pytest.org/en/latest/skipping.html">Przykłady</a></h3>
+<h3 id="parametryzacja"><a href="https://docs.pytest.org/en/latest/parametrize.html">Parametryzacja</a></h3>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+### [Dokumentacja](https://docs.pytest.org/en/latest/mark.html) 
+
+Markery umożliwiają dodanie tagów do testów. Dzięki temu możemy je grupować co pozwala uruchamiać wyłącznie poszczególne 
+przypadki. Testy możemy również oznaczyć jako do pominięcia lub skazane na niepowodzenie. Poprzez parametryzację 
+wykonujemy dany test wiele razy - dla każdego z podanych argumentów w markerze. Patrz przykłady poniżej.
+
+Opis markerów zamieszczamy w pliku `ini`, np:
+```
+markers = 
+    smoke : All critical tests
+    database : All database tests
+    gui : All GUI tests
+```
+Nie musimy opisywać wszystkich, część może być tylko znana developerowi. Do ich wyświetlenia używamy komendy: 
+`pytest --markers`.
+
+### Użycie
+
+Przykładowy plik `test_me.py` oznaczony markerami:
+```python
+from pytest import mark
+
+@mark.smoke
+@mark.gui
+def test_something():
+    assert True
+```
+Do jednej funkcji, metody czy klasy możemy dodać dowolną ilość markerów. Jeśli klasa zostanie oznaczona to tyczy się to 
+każdej dostępnej w niej metody, np. umieszczenie `@mark.skip` spowoduje, że żaden test z danej klasy nie zostanie 
+wykonany.
+
+### Uruchomienie
+
+- `pytest -m nazwa` : uruchamia przypadki oznaczone markerem `@mark.nazwa`
+- `pytest -m &#34;smoke and gui&#34;` : uruchamia przypadki posiadające oba markery (jak przykład powyżej)
+- `pytest -m &#34;smoke or gui&#34;` : uruchamia przypadki oznaczone markerem `@mark.smoke` i te `@gui`
+- `pytest -m &#34;not gui&#34;` : uruchamia wszystkie testy poza oznaczonymi markerem `@mark.gui`
+
+#### Inne flagi
+
+- `--markers` : wyświetla opis markerów zamieszczonych w pliku `ini`
+- `-rs` : wyświetla opis z pominiętych markerów (skip)
+- `-rx` : wyświetla opis z markerów skazanych na niepowodzenie (xfail)
+
+### Predefiniowane markery
+
+- `@mark.skip(reason=&#39;Fix in next sprint&#39;)` - służy do pomijania testów, informację dlaczego test został pominięty można 
+umieścić w parametrze `reason` - opcjonalna (wyświetla się ją flagą `-rs`)
+- `@mark.skipif(sys.platform==&#39;win32&#39;, reason=&#39;Linux only tests&#39;)` - pomija test jeśli warunek jest spełniony, według 
+kursu mało użyteczne - stosować `xfail`
+- `@mark.xfail` - oznacza, że test się nie powiedzie, można jak przy `skipif` ustalić warunek (dla jakich przypadków 
+zachodzi niepowodzenie) i podać przyczynę w `reason` (wyświetla ją flaga `-rx`)
+- `@mark.parametrize(&#39;nazwa&#39;, [&#39;arg1&#39;, &#39;arg2&#39;])` - test oznaczony takim markerem uruchomi się tyle razy co liczba 
+podanych argumentów w liście, przekazujemy je poprzez użytą powyżej nazwę: `def test_me(nazwa)`
+
+### [Przykłady](https://docs.pytest.org/en/latest/skipping.html)
+### [Parametryzacja](https://docs.pytest.org/en/latest/parametrize.html)
+&#34;&#34;&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#dokumentacja">Dokumentacja</a></li>
+<li><a href="#uzycie">Użycie</a></li>
+<li><a href="#uruchomienie">Uruchomienie</a><ul>
+<li><a href="#inne-flagi">Inne flagi</a></li>
+</ul>
+</li>
+<li><a href="#predefiniowane-markery">Predefiniowane markery</a></li>
+<li><a href="#przykady">Przykłady</a></li>
+<li><a href="#parametryzacja">Parametryzacja</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytest" href="index.html">pytest</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.2</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
